@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="262pt" height="259.99pt" viewBox="0 0 262 259.99" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 262 0 L 262 259.988281 L 0 259.988281 Z M 0 0 "/>
+</clipPath>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<rect x="0" y="0" width="262" height="259.99" style="fill:rgb(100%,100%,100%);fill-opacity:0.333333;stroke:none;"/>
+  </g>
+</mask>
+<image id="image5" width="65" height="65" xlink:href="data:image/jpeg;base64,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"/>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0.25 259.738281 L 261.75 259.738281 L 261.75 0.25 L 0.25 0.25 L 0.25 259.738281 "/>
+</g>
+<use xlink:href="#image5" mask="url(#mask0)" transform="matrix(0,-3.545323,3.545323,0,5.259,245.2177)"/>
+<path style="fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 2512.5 1299.939062 L 52.617188 1299.939062 " transform="matrix(0.1,0,0,-0.1,0,259.99)"/>
+<path style="fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 2587.5 1299.939062 L 2512.5 1320.05625 L 2512.5 1279.860937 Z M 2587.5 1299.939062 " transform="matrix(0.1,0,0,-0.1,0,259.99)"/>
+<path style="fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 52.617188 2492.4 L 52.617188 32.517187 " transform="matrix(0.1,0,0,-0.1,0,259.99)"/>
+<path style="fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 52.617188 2567.4 L 32.5 2492.4 L 72.695312 2492.4 Z M 52.617188 2567.4 " transform="matrix(0.1,0,0,-0.1,0,259.99)"/>
+</g>
+</svg>
