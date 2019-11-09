@@ -1,0 +1,4 @@
+name: binder-environment
+
+dependencies:
+  - sympy
