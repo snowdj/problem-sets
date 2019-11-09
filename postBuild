@@ -1,0 +1,2 @@
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
+echo "c.NotebookApp.token = ''" >> jupyter_notebook_config.py
