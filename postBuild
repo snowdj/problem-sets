@@ -1,2 +1,1 @@
-jupyter nbextension enable --py --sys-prefix widgetsnbextension
-echo "c.NotebookApp.token = ''" >> jupyter_notebook_config.py
+julia -e 'import WebIO; WebIO.install_jupyter_nbextension()'
