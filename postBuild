@@ -1,2 +1,1 @@
 julia -e 'import WebIO; WebIO.install_jupyter_nbextension()'
-julia -e 'import Pkg; Pkg.build("SymPy")'
