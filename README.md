@@ -8,4 +8,4 @@ See [data1010.github.io](https://data1010.github.io) for the course website, and
 
 To execute the notebooks interactively in your browser, click the Binder link above.
 
-To view the Jupyter notebooks, use nbviewer [here](https://nbviewer.jupyter.org/github/data1010/problem-sets/tree/master/).
+To view the Jupyter notebooks, use nbviewer [here](https://nbviewer.jupyter.org/github/data1010/problem-sets/tree/master/). 
