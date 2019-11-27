@@ -1,38 +1,31 @@
 using Printf 
 
 """
-Gives P(Z_k = 1 | All other variables)
  Inputs
  - x: The vector of (observed) X variables
  - z: The current sample of Z variables
  - θ: The vector parameters in the form [q, σ²]
  - k: The index of the Z variable of interest
 Outputs
- The probability that Z_k = 1 given all other variables
+ The acceptance ratio for the proposal to switch Z_j
 """
-function conditional_probability(x, z, θ, j)
+function acceptance_ratio(x, z, θ, j)
     # Extract density parameters
     q, σ² = θ
     σ = sqrt(σ²)
     n = length(x)
-    𝒩₁ = Normal(1, σ)
-    𝒩₀ = Normal(0, σ)
-
+    𝒩 = OffsetArray([Normal(0, σ), Normal(1, σ)], 0:1)
     if j == 1
-        joint = (q*(z[j+1] == 1) + (1-q)*(z[j+1] == 0))*pdf(𝒩₁, x[j])
-        marginal = joint + (q*(z[j+1] == 0) +
-        (1-q)*(z[j+1] == 1))*pdf(𝒩₀,x[j])
+        new = (q*(z[j+1] ≠ z[j]) + (1-q)*(z[j+1] == z[j]))*pdf(𝒩[1-z[j]], x[j])
+        old = (q*(z[j+1] == z[j]) + (1-q)*(z[j+1] ≠ z[j]))*pdf(𝒩[z[j]], x[j])
     elseif j == n
-        joint = (q*(z[j-1] == 1) + (1-q)*(z[j-1] == 0))*pdf(𝒩₁, x[j])
-        marginal = joint + (q*(z[j-1] == 0) +
-        (1-q)*(z[j-1] == 1))*pdf(𝒩₀,x[j])
+        new = (q*(z[j-1] ≠ z[j]) + (1-q)*(z[j-1] == z[j]))*pdf(𝒩[1-z[j]], x[j])
+        old = (q*(z[j-1] == z[j]) + (1-q)*(z[j-1] ≠ z[j]))*pdf(𝒩[z[j]], x[j])
     else
-        joint = (q*(z[j-1] == 1) + (1-q)*(z[j-1] == 0))*(q*(z[j+1] == 1) +
-         (1-q)*(z[j+1] == 0))*pdf(𝒩₁,x[j])
-        marginal = joint + (q*(z[j-1] == 0) + (1-q)*(z[j-1] == 1))*(q*(z[j+1] == 0) +
-        (1-q)*(z[j+1] == 1))*pdf(𝒩₀, x[j])
+        new = (q*(z[j-1] ≠ z[j]) + (1-q)*(z[j-1] == z[j]))*(q*(z[j+1] ≠ z[j]) + (1-q)*(z[j+1] == z[j]))*pdf(𝒩[1-z[j]], x[j])
+        old = (q*(z[j-1] == z[j]) + (1-q)*(z[j-1] ≠ z[j]))*(q*(z[j+1] == z[j]) + (1-q)*(z[j+1] ≠ z[j]))*pdf(𝒩[z[j]], x[j])
     end
-    joint/marginal
+    new/old
 end
 
 
@@ -50,7 +43,9 @@ Inputs
 function get_single_gibbs_sample!(x, z, θ)
     n = length(x)
     for j = 1:n
-        z[j] = rand() < conditional_probability(x, z, θ, j)
+        if rand() < acceptance_ratio(x, z, θ, j)
+            z[j] = 1 - z[j]
+        end
     end
 end
 
